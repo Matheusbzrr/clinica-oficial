@@ -5,6 +5,8 @@ class Agendamento {
   final DateTime data;
   final String hora;
   final String cliente;
+  final String bairro;
+  final String clinica;
 
   Agendamento({
     required this.objectId,
@@ -13,6 +15,8 @@ class Agendamento {
     required this.data,
     required this.hora,
     required this.cliente,
+    required this.bairro,
+    required this.clinica,
   });
 
   Map<String, dynamic> toJson() {
@@ -22,6 +26,8 @@ class Agendamento {
       'data': data,
       'hora': hora,
       'cliente': cliente,
+      'bairro': bairro,
+      'clinica': clinica,
     };
   }
 }

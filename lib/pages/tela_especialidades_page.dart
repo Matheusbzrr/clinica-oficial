@@ -8,9 +8,15 @@ import 'pagina_inicial_page.dart';
 
 class TelaEspecialidades extends StatefulWidget {
   final Cliente cliente;
+  final String bairro;
+  final String clinica;
 
-  const TelaEspecialidades({Key? key, required this.cliente}) : super(key: key);
-
+  const TelaEspecialidades({
+    Key? key,
+    required this.cliente,
+    required this.bairro,
+    required this.clinica,
+  }) : super(key: key);
   @override
   State<TelaEspecialidades> createState() => _TelaEspecialidadesState();
 }
@@ -55,6 +61,8 @@ class _TelaEspecialidadesState extends State<TelaEspecialidades> {
         builder: (context) => EscolhaDoMedico(
           especialidade: especialidade,
           cliente: widget.cliente,
+          bairro: widget.bairro,
+          clinica: widget.clinica,
         ),
       ),
     );

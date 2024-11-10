@@ -3,8 +3,9 @@ import 'package:clinica_agil/models/cliente.dart';
 import 'package:clinica_agil/pages/meus_agendamentos.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'tela_especialidades_page.dart';
+import 'localizacao_clinica.dart';
 import 'carteirinha.dart';
+import 'clinicas_salvas.dart';
 
 class PaginaInicial extends StatefulWidget {
   final Cliente cliente;
@@ -168,7 +169,7 @@ class _PaginaInicialState extends State<PaginaInicial> {
                   buildCard(
                     'Agendar Consulta',
                     Icons.event_note,
-                    TelaEspecialidades(
+                    LocalizacaoClinica(
                       cliente: widget.cliente, // Passa o Objeto cliente
                     ),
                   ),
@@ -181,7 +182,11 @@ class _PaginaInicialState extends State<PaginaInicial> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   buildCard('Meus Exames', Icons.medical_services),
-                  buildCard('Benefícios', Icons.card_giftcard),
+                  buildCard(
+                    'Clínicas Salvas',
+                    Icons.bookmark,
+                    ClinicasSalvas(cliente: widget.cliente),
+                  ),
                 ],
               ),
             ],

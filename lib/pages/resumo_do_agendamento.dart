@@ -13,6 +13,8 @@ class ResumoDoAgendamento extends StatelessWidget {
   final DateTime data;
   final String hora;
   final Cliente cliente;
+  final String bairro;
+  final String clinica;
 
   const ResumoDoAgendamento({
     super.key,
@@ -21,6 +23,8 @@ class ResumoDoAgendamento extends StatelessWidget {
     required this.data,
     required this.hora,
     required this.cliente,
+    required this.bairro,
+    required this.clinica,
   });
 
   String getTituloEspecialidade() {
@@ -197,6 +201,8 @@ class ResumoDoAgendamento extends StatelessWidget {
                             data: data,
                             hora: hora,
                             cliente: cliente,
+                            bairro: bairro,
+                            clinica: clinica,
                           ),
                         ),
                       );

@@ -12,6 +12,9 @@ class ConfirmacaoAgendamentoPage extends StatefulWidget {
   final DateTime data;
   final String hora;
   final Cliente cliente;
+  final String bairro;
+  final String clinica;
+
   const ConfirmacaoAgendamentoPage({
     Key? key,
     required this.especialidade,
@@ -19,6 +22,8 @@ class ConfirmacaoAgendamentoPage extends StatefulWidget {
     required this.data,
     required this.hora,
     required this.cliente,
+    required this.bairro,
+    required this.clinica,
   }) : super(key: key);
 
   @override
@@ -64,6 +69,8 @@ class _ConfirmacaoAgendamentoPageState
     agendamento.set('cliente', widget.cliente.email);
     agendamento.set('data', widget.data);
     agendamento.set('hora', widget.hora);
+    agendamento.set('bairro', widget.bairro);
+    agendamento.set('clinica', widget.clinica);
 
     // Salva o agendamento no Parse Server
     final response = await agendamento.save();

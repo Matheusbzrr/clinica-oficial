@@ -9,11 +9,15 @@ import 'pagina_inicial_page.dart';
 class EscolhaDoMedico extends StatefulWidget {
   final Cliente cliente;
   final Especialidades especialidade;
+  final String bairro;
+  final String clinica;
 
   const EscolhaDoMedico({
     Key? key,
     required this.cliente,
     required this.especialidade,
+    required this.bairro,
+    required this.clinica,
   }) : super(key: key);
 
   @override
@@ -51,6 +55,8 @@ class _EscolhaDoMedicoState extends State<EscolhaDoMedico> {
           cliente: widget.cliente,
           especialidade: widget.especialidade,
           medico: medicoSelecionado,
+          bairro: widget.bairro,
+          clinica: widget.clinica,
         ),
       ),
     );

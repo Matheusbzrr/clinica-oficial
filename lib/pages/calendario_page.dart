@@ -12,12 +12,16 @@ class CalendarioPage extends StatefulWidget {
   final Cliente cliente;
   final Especialidades especialidade;
   final Medico medico;
+  final String bairro;
+  final String clinica;
 
   const CalendarioPage({
     Key? key,
     required this.cliente,
     required this.especialidade,
     required this.medico,
+    required this.bairro,
+    required this.clinica,
   }) : super(key: key);
 
   @override
@@ -81,6 +85,8 @@ class _CalendarioPageState extends State<CalendarioPage> {
             cliente: widget.cliente,
             data: _selectedDay!,
             hora: _selectedTime!,
+            bairro: widget.bairro,
+            clinica: widget.clinica,
           ),
         ),
       );

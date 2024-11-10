@@ -49,13 +49,14 @@ class _MeusAgendamentosState extends State<MeusAgendamentos> {
                 .now(); // Valor padrão se o campo 'data' estiver ausente ou em um formato inesperado
           }
           return Agendamento(
-            objectId: object.objectId!,
-            especialidade: object.get<String>('especialidade')!,
-            medico: object.get<String>('medico')!,
-            data: data,
-            hora: object.get<String>('hora')!,
-            cliente: object.get<String>('cliente')!,
-          );
+              objectId: object.objectId!,
+              especialidade: object.get<String>('especialidade')!,
+              medico: object.get<String>('medico')!,
+              data: data,
+              hora: object.get<String>('hora')!,
+              cliente: object.get<String>('cliente')!,
+              bairro: object.get<String>('bairro')!,
+              clinica: object.get<String>('clinica'));
         }).toList();
       });
     }
@@ -198,14 +199,14 @@ class _MeusAgendamentosState extends State<MeusAgendamentos> {
                               buildDetailRow(Icons.calendar_today, "Hora",
                                   "${agendamento.hora}"),
                               const SizedBox(height: 16),
-                              buildDetailRow(Icons.person, "Paciente",
-                                  agendamento.cliente),
-                              const SizedBox(height: 16),
                               buildDetailRow(Icons.medical_services, "Médico",
                                   agendamento.medico),
                               const SizedBox(height: 16),
                               buildDetailRow(Icons.location_on, "Localização",
-                                  "Clínica Ágil - Centro"),
+                                  agendamento.bairro),
+                              const SizedBox(height: 16),
+                              buildDetailRow(Icons.local_hospital, "Clinica",
+                                  agendamento.clinica),
                               const SizedBox(height: 16),
                               Align(
                                 alignment: Alignment.centerRight,
