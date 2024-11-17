@@ -147,7 +147,6 @@ class _EscolhaDoMedicoState extends State<EscolhaDoMedico> {
                         child: Text('Nenhum médico encontrado.'));
                   } else {
                     final medicos = snapshot.data!;
-                    // Filtra médicos considerando o `objectId` da especialidade
                     final medicosFiltrados = medicos
                         .where((medico) =>
                             medico.especialidade != null &&
@@ -161,7 +160,8 @@ class _EscolhaDoMedicoState extends State<EscolhaDoMedico> {
                         final medico = medicosFiltrados[index];
                         return _buildMedicoCard(
                           nome: medico.nome,
-                          onTap: () => _navigateToCalendario(medico),
+                          crm: medico.crm,
+                          onSelect: () => _navigateToCalendario(medico),
                         );
                       },
                     );
@@ -188,30 +188,59 @@ class _EscolhaDoMedicoState extends State<EscolhaDoMedico> {
     );
   }
 
-  Widget _buildMedicoCard({required String nome, required VoidCallback onTap}) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 8.0),
+  Widget _buildMedicoCard(
+      {required String nome,
+      required String crm,
+      required VoidCallback onSelect}) {
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 4,
+      child: Padding(
         padding: const EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1,
-              blurRadius: 5,
-              offset: const Offset(0, 3),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              nome,
+              style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87),
+            ),
+            const SizedBox(height: 4),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  widget.especialidade.nome,
+                  style: const TextStyle(fontSize: 16, color: Colors.black54),
+                ),
+                Text(
+                  'CRM: $crm',
+                  style: const TextStyle(fontSize: 16, color: Colors.black54),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: ElevatedButton(
+                onPressed: onSelect,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF222083),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                ),
+                child: const Text(
+                  'Selecionar',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
           ],
-        ),
-        child: Text(
-          nome,
-          style: const TextStyle(
-            fontSize: 18.0,
-            fontWeight: FontWeight.w600,
-          ),
         ),
       ),
     );

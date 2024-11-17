@@ -65,21 +65,6 @@ class _CarteirinhaPageState extends State<CarteirinhaPage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              width: 36,
-              height: 36,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-              child: IconButton(
-                iconSize: 20,
-                icon: const Icon(Icons.arrow_back, color: Color(0xFF222083)),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ),
             const Expanded(
               child: Center(
                 child: Image(
@@ -138,7 +123,6 @@ class _CarteirinhaPageState extends State<CarteirinhaPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           buildInfoColumn('Nome', nome),
-                          buildInfoColumn('Sexo', 'Masculino'),
                         ],
                       ),
                       const SizedBox(height: 16),

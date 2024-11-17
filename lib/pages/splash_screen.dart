@@ -25,8 +25,6 @@ class _SplashScreenState extends State<SplashScreen>
       parent: _controller,
       curve: Curves.easeOut,
     );
-
-    // Navega para a tela de login após um atraso
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
@@ -53,10 +51,8 @@ class _SplashScreenState extends State<SplashScreen>
             children: [
               Image.asset(
                 'assets/images/logo_de_entrada.png',
-                width:
-                    MediaQuery.of(context).size.width * 0.9, // Tamanho inicial
-                height:
-                    MediaQuery.of(context).size.width * 0.9, // Tamanho inicial
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.width * 0.9,
                 fit: BoxFit.contain,
               ),
               const SizedBox(height: 16),

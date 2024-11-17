@@ -2,7 +2,7 @@ class Medico {
   final String objectId;
   final String nome;
   final String crm;
-  final Especialidade? especialidade; // Permite especialidade nula
+  final Especialidade? especialidade;
 
   Medico({
     required this.objectId,
@@ -18,7 +18,7 @@ class Medico {
       crm: json['CRM'],
       especialidade: json['especialidade'] != null
           ? Especialidade.fromJson(json['especialidade'])
-          : null, // Define especialidade como nula se não estiver no JSON
+          : null,
     );
   }
 }

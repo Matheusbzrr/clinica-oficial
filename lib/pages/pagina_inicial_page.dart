@@ -208,7 +208,6 @@ class _PaginaInicialState extends State<PaginaInicial> {
             _selectedIndex = index;
           });
           if (index == 1) {
-            // Índice 1 é o "Carteirinha"
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(

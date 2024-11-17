@@ -45,8 +45,7 @@ class _MeusAgendamentosState extends State<MeusAgendamentos> {
           } else if (dataField is DateTime) {
             data = dataField;
           } else {
-            data = DateTime
-                .now(); // Valor padrão se o campo 'data' estiver ausente ou em um formato inesperado
+            data = DateTime.now();
           }
           return Agendamento(
               objectId: object.objectId!,

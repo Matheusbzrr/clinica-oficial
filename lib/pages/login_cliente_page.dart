@@ -108,8 +108,6 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
               ),
             ),
             const SizedBox(height: 16),
-
-            // Campo de Senha
             const Text(
               'Senha',
               style: TextStyle(
@@ -141,8 +139,6 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
               ),
             ),
             const SizedBox(height: 32),
-
-            // Botão de "Entrar"
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -161,8 +157,6 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
               ),
             ),
             const SizedBox(height: 16),
-
-            // Links para "Esqueci minha senha" e "Criar conta"
             Column(
               children: [
                 TextButton(

@@ -1,5 +1,5 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
-import 'package:clinica_agil/models/cliente.dart'; // Importa a classe Cliente
+import 'package:clinica_agil/models/cliente.dart';
 
 class ClienteRepository {
   Future<Cliente> criarCliente(String nome, String email, String senha,
@@ -27,7 +27,7 @@ class ClienteRepository {
 
   Future<bool> clienteExiste(String email) async {
     final query = QueryBuilder<Cliente>(Cliente())
-      ..whereEqualTo('email', email); // Assumindo que 'email' é único
+      ..whereEqualTo('email', email);
 
     final response = await query.query();
     return response.success && (response.results?.isNotEmpty ?? false);
@@ -43,11 +43,11 @@ class ClienteRepository {
     if (response.success &&
         response.results != null &&
         response.results!.isNotEmpty) {
-      return true; // Login bem-sucedido
+      return true;
     } else {
       print(
           "Erro ao fazer login: ${response.error?.message ?? 'Credenciais inválidas'}");
-      return false; // Login falhou
+      return false;
     }
   }
 
@@ -71,7 +71,6 @@ class ClienteRepository {
       String? numCarteira}) async {
     final cliente = Cliente()..objectId = id;
 
-    // atualiza os campos se não forem nulos
     if (nome != null) cliente.nome = nome;
     if (email != null) cliente.email = email;
     if (senha != null) cliente.senha = senha;
