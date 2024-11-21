@@ -73,15 +73,19 @@ class _PaginaInicialState extends State<PaginaInicial> {
 
   @override
   Widget build(BuildContext context) {
+    // Obtenha as dimensões da tela
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: const Color(0xFF222083),
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(200),
+        preferredSize: Size.fromHeight(screenHeight * 0.25),
         child: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: const Color(0xFF222083),
           flexibleSpace: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(screenWidth * 0.04),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -100,19 +104,25 @@ class _PaginaInicialState extends State<PaginaInicial> {
                         color: Colors.white,
                         onPressed: () {},
                       ),
+                      IconButton(
+                        icon: const Icon(Icons.exit_to_app),
+                        color: Colors.white,
+                        onPressed: () {},
+                      ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: screenHeight * 0.02),
                 GestureDetector(
                   onTap: _showImageOptions,
-                  child: Column(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Stack(
                         children: [
                           CircleAvatar(
                             key: UniqueKey(),
-                            radius: 40,
+                            radius: screenWidth * 0.1,
                             backgroundImage: _imageFile != null
                                 ? FileImage(_imageFile!)
                                 : null,
@@ -126,26 +136,30 @@ class _PaginaInicialState extends State<PaginaInicial> {
                             right: 0,
                             child: CircleAvatar(
                               backgroundColor: Colors.blue,
-                              radius: 12,
+                              radius: screenWidth * 0.03,
                               child: const Icon(Icons.edit,
                                   color: Colors.white, size: 16),
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        widget.cliente.nome ?? '',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      SizedBox(width: screenWidth * 0.04),
+                      Flexible(
+                        child: Text(
+                          widget.cliente.nome ?? '',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: screenHeight * 0.02),
                 const Divider(
                   color: Colors.white54,
                   thickness: 1,
@@ -158,7 +172,7 @@ class _PaginaInicialState extends State<PaginaInicial> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(screenWidth * 0.04),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -177,7 +191,7 @@ class _PaginaInicialState extends State<PaginaInicial> {
                       MeusAgendamentos(cliente: widget.cliente)),
                 ],
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: screenHeight * 0.02),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

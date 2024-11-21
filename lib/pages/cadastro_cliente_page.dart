@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:clinica_agil/Controllers/ClienteController.dart';
 import 'package:clinica_agil/services/ParseUsarService.dart';
+import 'login_cliente_page.dart';
 
 class CadastroClientePage extends StatefulWidget {
   const CadastroClientePage({super.key});
@@ -296,7 +297,36 @@ class _CadastroClientePageState extends State<CadastroClientePage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: _cadastrarCliente,
+                onPressed: () async {
+                  // Chame a função de cadastro
+                  _cadastrarCliente();
+
+                  // Mostre a mensagem de confirmação
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Cadastro Confirmado'),
+                        content: const Text(
+                            'Seu cadastro foi realizado com sucesso!'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const TelaDeLogin(),
+                                ),
+                              );
+                            },
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF222083),
                   padding: const EdgeInsets.symmetric(vertical: 16),
