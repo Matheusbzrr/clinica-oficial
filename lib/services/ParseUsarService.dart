@@ -6,8 +6,8 @@ class ParseUsarService {
 
   ParseUsarService._internal();
 
-  final String keyApplicationId = 'g4HqlebHJIb5hK6tyWBcufQfZDutuehirNW80z1D';
-  final String keyClientKey = 'jlPx7j6xpyR5eOoVMx6ljSph3XNvJX7bToEMWhca';
+  final String keyApplicationId = 'seuid';
+  final String keyClientKey = 'suasenha';
   final String keyParseServerUrl = 'https://parseapi.back4app.com';
 
   Future<void> initializeParse() async {
