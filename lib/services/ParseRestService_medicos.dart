@@ -3,8 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:clinica_agil/models/medico.dart';
 
 class ParseRestServiceMedicos {
-  final String keyApplicationId = 'g4HqlebHJIb5hK6tyWBcufQfZDutuehirNW80z1D';
-  final String keyRestApiKey = 'yFgp4kMNBqzkCaRUP4fOOXi9FgiqxIzbsQ73HLZf';
+  final String keyApplicationId = 'seuid';
+  final String keyRestApiKey = 'seuasenha';
   final String keyParseServerUrl = 'https://parseapi.back4app.com';
 
   Future<List<Medico>> getMedicos() async {
